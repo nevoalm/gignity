@@ -4,6 +4,11 @@
   <artifactId>Gignity</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+   <properties>
+        <org.springframework-version>4.1.4.RELEASE</org.springframework-version>
+        <org.log4j-version>1.2.17</org.log4j-version>
+        <hibernate.version>4.3.5.Final</hibernate.version>
+    </properties>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -25,21 +30,68 @@
       </plugin>
     </plugins>
   </build>
+  
   <dependencies>
-  	<dependency>
-  		<groupId>org.springframework</groupId>
-  		<artifactId>spring-context</artifactId>
-  		<version>4.1.4.RELEASE</version>
-  	</dependency>
   	<dependency>
   		<groupId>log4j</groupId>
   		<artifactId>log4j</artifactId>
-  		<version>1.2.17</version>
+  		<version>${org.log4j-version}</version>
   	</dependency>
   	<dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>servlet-api</artifactId>
         <version>2.5</version>
     </dependency>
+     <!-- Spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${org.springframework-version}</version>
+            <exclusions>
+                <!-- Exclude Commons Logging in favor of log4j -->
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                 </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+         
+        <!-- Hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+         
+        <!-- Apache Commons DBCP -->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <!-- Spring ORM -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+                 
+    
+    
   </dependencies>
 </project>
