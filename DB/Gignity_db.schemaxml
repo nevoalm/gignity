@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="utf8" collation="utf8_general_ci">gignitydb</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="jobs" view="colnames">
+<left>312</left>
+<top>184</top>
+<width>108</width>
+<height>214</height>
+<sql_create_table>CREATE TABLE `jobs` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `date` datetime NOT NULL,
+  `start_hour` time NOT NULL,
+  `end_hour` time NOT NULL,
+  `salary` double NOT NULL,
+  `publisher` int(11) NOT NULL,
+  `location` tinytext NOT NULL,
+  `description` tinytext,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `DATE` (`date`),
+  UNIQUE KEY `START_TIME` (`start_hour`),
+  KEY `USER_ID` (`publisher`),
+  CONSTRAINT `USER_ID` FOREIGN KEY (`publisher`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+<table name="users" view="colnames">
+<left>623</left>
+<top>269</top>
+<width>107</width>
+<height>163</height>
+<sql_create_table>CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` tinytext NOT NULL,
+  `last_name` tinytext NOT NULL,
+  `email` tinytext NOT NULL,
+  `password` tinytext,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
